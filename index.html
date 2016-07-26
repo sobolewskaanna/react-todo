@@ -14,6 +14,7 @@
   <script src="https://fb.me/react-15.2.0.js"></script>
   <script src="https://fb.me/react-dom-15.2.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://use.fontawesome.com/77abdff7dd.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
 
@@ -45,7 +46,7 @@
                 <input ref="newText" defaultValue={this.props.children}></input>
               </div>
               <div className="col-sm-6 col-xs-6 text-xs-right">
-                <button className="btn btn-primary-outline" onClick={this.save}>Save</button>
+                <button className="btn btn-primary-outline" onClick={this.save}><i className="fa fa-floppy-o" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -59,8 +60,8 @@
                 <p>{this.props.children}</p>
               </div>
               <div className="col-sm-6 col-xs-6 text-xs-right">
-                <button className="btn btn-primary-outline" onClick={this.edit}>Edit</button>
-                <button className="btn btn-primary-outline" onClick={this.delete}>Delete</button>
+                <button className="btn btn-primary-outline" onClick={this.edit}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                <button className="btn btn-primary-outline" onClick={this.delete}><i className="fa fa-trash-o" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
