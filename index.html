@@ -39,25 +39,29 @@
       },
       renderForm: function () {
         return (
-          <div>
-            <div>
-              <input ref="newText" defaultValue={this.props.children}></input>
-            </div>
-            <div>
-              <button onClick={this.save}>Save</button>
+          <div className="container card">
+            <div className="row">
+              <div className="col-sm-6 col-xs-6">
+                <input ref="newText" defaultValue={this.props.children}></input>
+              </div>
+              <div className="col-sm-6 col-xs-6 text-xs-right">
+                <button onClick={this.save}>Save</button>
+              </div>
             </div>
           </div>
         )
       },
       renderTodo: function () {
         return (
-          <div>
-            <div>
-              <p>{this.props.children}</p>
-            </div>
-            <div>
-              <button onClick={this.edit}>Edit</button>
-              <button onClick={this.delete}>Delete</button>
+          <div className="container card">
+            <div className="row">
+              <div className="col-sm-6 col-xs-6">
+                <p>{this.props.children}</p>
+              </div>
+              <div className="col-sm-6 col-xs-6 text-xs-right">
+                <button onClick={this.edit}>Edit</button>
+                <button onClick={this.delete}>Delete</button>
+              </div>
             </div>
           </div>
         );
