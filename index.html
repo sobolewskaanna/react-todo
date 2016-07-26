@@ -82,6 +82,7 @@
         var userInput = this.state.text;
         var arrayOfTodos = this.state.todos;
         arrayOfTodos.push(userInput);
+        localStorage.setItem('arrayOfTodos', arrayOfTodos);
         this.setState({todos: arrayOfTodos, text:''});
       },
       handleChange: function (event) {
@@ -91,11 +92,13 @@
       updateTodo: function (newText, i) {
         var arrayOfTodos = this.state.todos;
         arrayOfTodos[i] = newText;
+        localStorage.setItem('arrayOfTodos', arrayOfTodos);
         this.setState({todos: arrayOfTodos});
       },
       removeTodo: function (i) {
         var arrayOfTodos = this.state.todos;
         arrayOfTodos.splice(i, 1);
+        localStorage.setItem('arrayOfTodos', arrayOfTodos);
         this.setState({todos: arrayOfTodos});
       },
       render: function (i) {
@@ -113,7 +116,11 @@
       }
     });
 
+    var localStorageTodos = localStorage.getItem('arrayOfTodos');
     var todos = [];
+    if (localStorageTodos != null) {
+      todos = localStorage.getItem('arrayOfTodos').split(",");
+    }
 
     ReactDOM.render(<Board todos={todos} />, document.getElementById('container'));
   </script>
