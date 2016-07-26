@@ -38,7 +38,7 @@ p {
 }
 
 input {
-  margin-top: .7rem !important;
+  /*margin-top: .7rem !important;*/
   margin-bottom: .5rem;
 }
 
@@ -52,11 +52,14 @@ input {
   .title {
     font-size: 80px;
   }
-  .btn.btn-success {
-    margin-top: .5rem;
-  }
   .card {
     width: 90%;
     margin-left: 5%;
+  }
+}
+
+@media (max-width: 33.99em) {
+  .btn.btn-success {
+    margin-top: .5rem;
   }
 }
