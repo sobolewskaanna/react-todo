@@ -105,7 +105,7 @@
       render: function (i) {
         return (
           <div>
-            <div>things to do:</div>
+            <div className="container title">things to do:</div>
             <form onSubmit={this.handleSubmit}>
               <input type="text" placeholder="To Do Item" value={this.state.text} onChange={this.handleChange}/><button>Add</button>
             </form>
