@@ -34,14 +34,25 @@
         return {todos: this.props.todos, text:''}
       },
       eachTodo: function (item, i) {
-        return (<Todo>{item}</Todo>);
+        return (<Todo key={i} index={i}>{item}</Todo>);
+      },
+      handleSubmit: function (event) {
+        event.preventDefault();
+        var userInput = this.state.text;
+        var arrayOfTodos = this.state.todos;
+        arrayOfTodos.push(userInput);
+        this.setState({todos: arrayOfTodos, text:''});
+      },
+      handleChange: function (event) {
+        var userInput = event.target.value;
+        this.setState({text: userInput});
       },
       render: function (i) {
         return (
           <div>
             <div>things to do:</div>
-            <form>
-              <input type="text" placeholder="To Do Item"/><button>Add</button>
+            <form onSubmit={this.handleSubmit}>
+              <input type="text" placeholder="To Do Item" value={this.state.text} onChange={this.handleChange}/><button>Add</button>
             </form>
             <div>
               {this.state.todos.map(this.eachTodo)}
@@ -51,7 +62,7 @@
       }
     });
 
-    var todos = ["hello", "cool"];
+    var todos = [];
 
     ReactDOM.render(<Board todos={todos} />, document.getElementById('container'));
   </script>
