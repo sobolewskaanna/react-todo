@@ -21,22 +21,39 @@
   <div id="container"></div>
 
   <script type="text/babel">
-    var Board = React.createClass({
+    var Todo = React.createClass({
       render: function () {
+        return (
+          <p>{this.props.children}</p>
+        )
+      }
+    });
+
+    var Board = React.createClass({
+      getInitialState: function () {
+        return {todos: this.props.todos, text:''}
+      },
+      eachTodo: function (item, i) {
+        return (<Todo>{item}</Todo>);
+      },
+      render: function (i) {
         return (
           <div>
             <div>things to do:</div>
             <form>
-            <input type="text" placeholder="To Do Item"/><button>Add</button>
+              <input type="text" placeholder="To Do Item"/><button>Add</button>
             </form>
+            <div>
+              {this.state.todos.map(this.eachTodo)}
+            </div>
           </div>
         );
       }
     });
 
-    var todos = [];
+    var todos = ["hello", "cool"];
 
-    ReactDOM.render(<Board />, document.getElementById('container'));
+    ReactDOM.render(<Board todos={todos} />, document.getElementById('container'));
   </script>
 </body>
 </html>
