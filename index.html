@@ -21,7 +21,20 @@
   <div id="container"></div>
 
   <script type="text/babel">
-  
+    var Board = React.createClass({
+      render: function () {
+        return (
+          <div>
+            <div>things to do:</div>
+            <form>
+            <input type="text" placeholder="To Do Item"/><button>Add</button>
+            </form>
+          </div>
+        );
+      }
+    });
+
+    ReactDOM.render(<Board />, document.getElementById('container'));
   </script>
 </body>
 </html>
