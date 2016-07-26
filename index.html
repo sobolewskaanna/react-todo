@@ -22,20 +22,46 @@
 
   <script type="text/babel">
     var Todo = React.createClass({
+      getInitialState: function () {
+        return {editing: false};
+      },
+      edit: function () {
+        this.setState({editing: true});
+      },
       delete: function () {
         this.props.deleteTodo(this.props.index);
       },
-      render: function () {
+      renderForm: function () {
+        return (
+          <div>
+            <div>
+              <input ref="newText" defaultValue={this.props.children}></input>
+            </div>
+            <div>
+              <button>Save</button>
+            </div>
+          </div>
+        )
+      },
+      renderTodo: function () {
         return (
           <div>
             <div>
               <p>{this.props.children}</p>
             </div>
             <div>
+              <button onClick={this.edit}>Edit</button>
               <button onClick={this.delete}>Delete</button>
             </div>
           </div>
         );
+      },
+      render: function () {
+        if (this.state.editing) {
+            return this.renderForm();
+          } else {
+            return this.renderTodo();
+          }
       }
     });
 
