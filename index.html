@@ -45,7 +45,7 @@
                 <input ref="newText" defaultValue={this.props.children}></input>
               </div>
               <div className="col-sm-6 col-xs-6 text-xs-right">
-                <button onClick={this.save}>Save</button>
+                <button className="btn btn-primary-outline" onClick={this.save}>Save</button>
               </div>
             </div>
           </div>
@@ -59,8 +59,8 @@
                 <p>{this.props.children}</p>
               </div>
               <div className="col-sm-6 col-xs-6 text-xs-right">
-                <button onClick={this.edit}>Edit</button>
-                <button onClick={this.delete}>Delete</button>
+                <button className="btn btn-primary-outline" onClick={this.edit}>Edit</button>
+                <button className="btn btn-primary-outline" onClick={this.delete}>Delete</button>
               </div>
             </div>
           </div>
