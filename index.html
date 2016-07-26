@@ -112,7 +112,7 @@
           <div>
             <div className="container title">things to do:</div>
             <form className="container form-inline" onSubmit={this.handleSubmit}>
-              <input type="text" className="form-control" placeholder="To Do Item" value={this.state.text} onChange={this.handleChange}/><button className="btn btn-success">Add</button>
+              <input type="text" className="form-control" placeholder="To Do Item" value={this.state.text} onChange={this.handleChange} required="required"/><button className="btn btn-success">Add</button>
             </form>
             <div>
               {this.state.todos.map(this.eachTodo)}
