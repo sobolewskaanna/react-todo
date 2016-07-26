@@ -31,6 +31,11 @@
       delete: function () {
         this.props.deleteTodo(this.props.index);
       },
+      save: function () {
+        var userInput = this.refs.newText.value;
+        this.props.updateTodoText(userInput, this.props.index);
+        this.setState({editing: false});
+      },
       renderForm: function () {
         return (
           <div>
@@ -38,7 +43,7 @@
               <input ref="newText" defaultValue={this.props.children}></input>
             </div>
             <div>
-              <button>Save</button>
+              <button onClick={this.save}>Save</button>
             </div>
           </div>
         )
@@ -70,7 +75,7 @@
         return {todos: this.props.todos, text:''}
       },
       eachTodo: function (item, i) {
-        return (<Todo key={i} index={i} deleteTodo={this.removeTodo}>{item}</Todo>);
+        return (<Todo key={i} index={i} deleteTodo={this.removeTodo} updateTodoText={this.updateTodo}>{item}</Todo>);
       },
       handleSubmit: function (event) {
         event.preventDefault();
@@ -82,6 +87,11 @@
       handleChange: function (event) {
         var userInput = event.target.value;
         this.setState({text: userInput});
+      },
+      updateTodo: function (newText, i) {
+        var arrayOfTodos = this.state.todos;
+        arrayOfTodos[i] = newText;
+        this.setState({todos: arrayOfTodos});
       },
       removeTodo: function (i) {
         var arrayOfTodos = this.state.todos;
