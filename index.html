@@ -22,6 +22,9 @@
 
   <script type="text/babel">
     var Todo = React.createClass({
+      delete: function () {
+        this.props.deleteTodo(this.props.index);
+      },
       render: function () {
         return (
           <div>
@@ -29,7 +32,7 @@
               <p>{this.props.children}</p>
             </div>
             <div>
-              <button>Delete</button>
+              <button onClick={this.delete}>Delete</button>
             </div>
           </div>
         );
@@ -41,7 +44,7 @@
         return {todos: this.props.todos, text:''}
       },
       eachTodo: function (item, i) {
-        return (<Todo key={i} index={i}>{item}</Todo>);
+        return (<Todo key={i} index={i} deleteTodo={this.removeTodo}>{item}</Todo>);
       },
       handleSubmit: function (event) {
         event.preventDefault();
@@ -53,6 +56,11 @@
       handleChange: function (event) {
         var userInput = event.target.value;
         this.setState({text: userInput});
+      },
+      removeTodo: function (i) {
+        var arrayOfTodos = this.state.todos;
+        arrayOfTodos.splice(i, 1);
+        this.setState({todos: arrayOfTodos});
       },
       render: function (i) {
         return (
