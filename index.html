@@ -24,8 +24,15 @@
     var Todo = React.createClass({
       render: function () {
         return (
-          <p>{this.props.children}</p>
-        )
+          <div>
+            <div>
+              <p>{this.props.children}</p>
+            </div>
+            <div>
+              <button>Delete</button>
+            </div>
+          </div>
+        );
       }
     });
 
